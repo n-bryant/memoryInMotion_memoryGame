@@ -1,0 +1,140 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  width: 100%; }
+
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  color: #FCE945;
+  font: 16px/1.6 "Nova Square", cursive;
+  text-align: center; }
+
+.game-title {
+  font-size: 4rem; }
+
+body {
+  background: #043247; }
+
+main {
+  margin: 3rem auto; }
+  main .game-title {
+    margin-bottom: 1rem; }
+
+.health-container {
+  margin: 1rem auto; }
+  .health-container .health-bar {
+    justify-content: center; }
+    .health-container .health-bar .hp {
+      width: 50px; }
+
+.game-container {
+  background: #ABC3CF;
+  border-radius: 10px;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+  width: 85%; }
+  .game-container p {
+    background: #043247;
+    border: 1px solid #FCE945;
+    bottom: 0;
+    color: #FCE945;
+    left: 0;
+    padding: .5rem;
+    position: absolute;
+    text-align: center;
+    width: 100%; }
+
+.tile-container {
+  width: 12%; }
+  .tile-container .back:hover {
+    animation: bounce 1s ease infinite;
+    cursor: pointer; }
+  .tile-container .front {
+    border-radius: 50%; }
+  .tile-container .paired {
+    animation: bounce 1s ease; }
+  .tile-container .missed {
+    animation: shake 3s ease; }
+
+.is-flex {
+  display: flex; }
+
+.is-centered {
+  text-align: center; }
+
+.is-hidden {
+  display: none; }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(-10px); } }
+
+@keyframes shake {
+  0% {
+    transform: translateX(0); }
+  25% {
+    transform: translateX(-10px); }
+  50% {
+    transform: translateX(10px); }
+  80% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translateX(0); } }

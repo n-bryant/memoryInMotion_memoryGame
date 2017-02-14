@@ -1,0 +1,44 @@
+.game-container {
+  background: $sky;
+  border-radius: 10px;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+  width: 85%;
+
+  p {
+    background: $navy;
+    border: 1px solid $gold;
+    bottom: 0;
+    color: $gold;
+    left: 0;
+    padding: .5rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.tile-container {
+  width: 12%;
+
+  .back{
+    &:hover {
+    animation: bounce 1s ease infinite;
+    cursor: pointer;
+    }
+  }
+  .front {
+    border-radius: 50%;
+  }
+  .paired {
+    animation: bounce 1s ease;
+  }
+  .missed {
+    animation: shake 3s ease;
+  }
+}

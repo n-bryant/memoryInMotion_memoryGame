@@ -1,0 +1,23 @@
+body {
+  background: $navy;
+}
+
+main {
+  margin: 3rem auto;
+
+  .game-title {
+    margin-bottom: 1rem;
+  }
+}
+
+.health-container {
+  margin: 1rem auto;
+
+
+  .health-bar {
+    justify-content: center;
+    .hp {
+      width: 50px;
+    }
+  }
+}

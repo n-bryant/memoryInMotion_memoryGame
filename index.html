@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" >
+    <title>TIY - Memory in Motion</title>
+    <link href="https://fonts.googleapis.com/css?family=Nova+Square|Patua+One" rel="stylesheet">
+    <link rel="stylesheet" href="lib/styles/main.css">
+  </head>
+  <body>
+    <main>
+      <h1 class='game-title'>Memory in Motion</h1>
+      <section class='game-container is-flex'>
+        <!-- Handlebars Template -->
+      </section>
+      <aside class="health-container">
+        <ul class="health-bar is-flex">
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+          <li class="hp"><img src="images/cardBack.png"></li>
+        </ul>
+      </aside>
+
+    </main>
+
+    <!-- handlebar template for game tiles -->
+    <script id="tile-template" type="text/x-handlebars-template">
+      {{#each srcFronts}}
+      <div class="tile-container" data-id="{{@index}}">
+        <img class="card back" src="images/cardBack.png">
+        <img class="card front is-hidden" src="{{this}}">
+      </div>
+      {{/each}}
+    </script>
+    <script src="lib/js/vendor/vendor.min.js"></script>
+    <script src="lib/js/app.js"></script>
+  </body>
+</html>
