@@ -175,11 +175,13 @@ main {
 .health-container {
   margin: 1rem auto; }
   .health-container .health-bar {
+    flex-wrap: wrap;
     justify-content: center; }
     .health-container .health-bar .hp {
       background: #FAFAFA;
       border-right: 2px solid #2e3242;
       height: 25px;
+      margin-bottom: .5rem;
       width: 25px; }
       .health-container .health-bar .hp:first-of-type {
         border-left: 2px solid #2e3242; }

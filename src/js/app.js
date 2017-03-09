@@ -5,7 +5,7 @@
     const $gameContainer = $('.game-container');
     const $gameReport = $('.game-report-container');
     // const $front = $('.card.front');
-    // const $this = $(this);
+    const $this = $(this);
     const start = moment(new Date());
 
     const player = {

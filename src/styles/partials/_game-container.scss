@@ -54,11 +54,13 @@
 
 
   .health-bar {
+    flex-wrap: wrap;
     justify-content: center;
     .hp {
       background: $light;
       border-right: 2px solid $slate;
       height: 25px;
+      margin-bottom: .5rem;
       width: 25px;
 
       &:first-of-type {
