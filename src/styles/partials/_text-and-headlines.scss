@@ -1,9 +1,48 @@
 body {
   color: $gold;
-  font: 16px/1.6 $primaryFont;
+  font: 16px/1.6 $headlines;
   text-align: center;
+}
+
+a {
+  color: $gold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.home-container {
+  color: $light;
+  font-family: $primaryFont;
+  text-align: left;
+
+  .difficulty-form {
+    label {
+      color: $gold;
+    }
+    select {
+      font: 1rem $primaryFont;
+
+      option {
+        color: $slate;
+      }
+    }
+  }
+}
+
+.play-btn, .restart-btn {
+  color: $slate;
+  font: 2rem $headlines;
+  text-transform: uppercase;
+
+  &:active {
+    color: $gold;
+  }
 }
 
 .game-title {
   font-size: 4rem;
+  text-shadow: 3px 3px $slate;
 }

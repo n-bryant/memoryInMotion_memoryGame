@@ -1,5 +1,9 @@
 body {
-  background: $navy;
+  background-color: #2e3242;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  height: 100%;
+  position: absolute;
+  width: 100%;
 }
 
 main {
@@ -7,17 +11,5 @@ main {
 
   .game-title {
     margin-bottom: 1rem;
-  }
-}
-
-.health-container {
-  margin: 1rem auto;
-
-
-  .health-bar {
-    justify-content: center;
-    .hp {
-      width: 50px;
-    }
   }
 }

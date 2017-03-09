@@ -1,5 +1,10 @@
+.game-wrapper {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
 .game-container {
-  background: $sky;
+  background: rgba(255,255,255,.25);
   border-radius: 10px;
   align-items: center;
   flex-direction: row;
@@ -11,7 +16,7 @@
   width: 85%;
 
   p {
-    background: $navy;
+    background: $slate;
     border: 1px solid $gold;
     bottom: 0;
     color: $gold;
@@ -24,7 +29,8 @@
 }
 
 .tile-container {
-  width: 12%;
+  margin: 1rem;
+  width: 115px;
 
   .back{
     &:hover {
@@ -40,5 +46,24 @@
   }
   .missed {
     animation: shake 3s ease;
+  }
+}
+
+.health-container {
+  margin: 1rem auto;
+
+
+  .health-bar {
+    justify-content: center;
+    .hp {
+      background: $light;
+      border-right: 2px solid $slate;
+      height: 25px;
+      width: 25px;
+
+      &:first-of-type {
+        border-left: 2px solid $slate;
+      }
+    }
   }
 }

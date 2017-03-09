@@ -1,9 +1,11 @@
 (function() {
   "use strict";
 
-  // revealing module
   const memoryGameModule = function() {
     const $gameContainer = $('.game-container');
+    const $gameReport = $('.game-report-container');
+    // const $front = $('.card.front');
+    // const $this = $(this);
     const start = moment(new Date());
 
     const player = {
@@ -11,15 +13,18 @@
       health: null,
       guesses: [],
       turns: 0
-    }
+    };
 
+    let cardFronts = ['/images/img1.gif', '/images/img2.gif', '/images/img3.gif', '/images/img4.gif',
+                       '/images/img5.gif', '/images/img6.gif', '/images/img7.gif', '/images/img8.gif',
+                       '/images/img9.gif', '/images/img10.gif', '/images/img11.gif', '/images/img12.gif',
+                       '/images/img13.gif', '/images/img14.gif', '/images/img15.gif', '/images/img16.jpg'];
+
+    // game board constructor
     class GameBoard {
-      constructor() {
-        this.cardFronts = ['/images/img1.gif', '/images/img2.gif', '/images/img3.gif', '/images/img4.gif',
-                           '/images/img5.gif', '/images/img6.gif', '/images/img7.gif', '/images/img8.gif',
-                           '/images/img9.gif', '/images/img10.gif', '/images/img11.gif', '/images/img12.gif',
-                           '/images/img13.gif', '/images/img14.gif', '/images/img15.gif', '/images/img16.jpg'];
-        this.shuffledDeck = this.shuffleCards(this.cardFronts);
+      constructor(difficulty) {
+        this.difficulty = difficulty;
+        this.shuffledDeck = this.shuffleCards(cardFronts);
         this.build();
       }
 
@@ -36,15 +41,69 @@
       }
 
       shuffleCards(cards) {
-        // duplicate array
-        let fullDeck = cards.concat(cards);
-        // http://www.w3schools.com/js/js_array_sort.asp
-        let shuffledCards = fullDeck.sort(function(a, b) {return 0.5 - Math.random()});
+        // number of cards based on selected difficulty
+        // let fullDeck = cards.concat(cards);
+        let shuffledCards = cards.sort(function(a, b) {return 0.5 - Math.random()});
+        if (this.difficulty === 'easy') {
+          shuffledCards = shuffledCards.slice(0, 6);
+        } else if (this.difficulty === 'medium') {
+          shuffledCards = shuffledCards.slice(0, 9);
+        } else if (this.difficulty === 'hard') {
+          shuffledCards = shuffledCards.slice(0, 12);
+        } else {}
+        shuffledCards = shuffledCards.concat(shuffledCards);
         return shuffledCards;
       }
     }
 
+    class HealthBar {
+      constructor(difficulty) {
+        console.log('in');
+        let cardCount;
+        if (difficulty === 'easy') {
+          cardCount = 12;
+        } else if (difficulty === 'medium') {
+          cardCount = 16;
+        } else if (difficulty === 'hard') {
+          cardCount = 12;
+        } else {
+          cardCount = 12;
+        }
+        this.health = 1.5 * cardCount;
+        this.healthBar = [];
+
+        for (let i = 0; i < this.health; i++) {
+          this.healthBar.push(i);
+        }
+
+        this.build();
+      }
+
+      build() {
+        const source = $('#health-template').html();
+        const template = Handlebars.compile(source);
+        const context = {
+          health: this.healthBar
+        };
+        const html = template(context);
+
+        $('.health-bar').append(html);
+        updateHealth();
+      }
+    }
+
+    // binding of event listeners
     function bindEvents() {
+      // difficulty select
+      document.querySelector('.play-btn').addEventListener('click', () => {
+        event.preventDefault();
+        let difficulty = $('.difficulty-select').val();
+        new GameBoard(difficulty);
+        new HealthBar(difficulty);
+        $('.home-container, .game-wrapper').toggleClass('is-hidden');
+      });
+
+      // gameplay
       $gameContainer.on('click', '.tile-container', function() {
         if (!$(this).children('.front').hasClass('paired')){
           player.currentGuess = {
@@ -64,6 +123,11 @@
             $(this).children('.front').removeClass('is-hidden');
           }
         }
+
+        // game reset
+        document.querySelector('.restart-btn').addEventListener('click', () => {
+          location.reload();
+        });
       });
     }
 
@@ -127,9 +191,9 @@
 
       // keep track of elapsed time
       if (win) {
-        $('<p>').text(`You won in ${player.turns} turns and ${minutes} minutes!`).appendTo($gameContainer);
+        $('<p>').text(`You won in ${player.turns / 2} turns and ${minutes.toFixed(2)} minutes!`).prependTo($gameReport);
       } else {
-        $('<p>').text(`You lost in ${minutes} minutes!`).appendTo($gameContainer);
+        $('<p>').text(`You lost in ${minutes.toFixed(2)} minutes!`).prependTo($gameReport);
       }
 
       for(let index = 0; index < $('.card.front').length; index++) {
@@ -139,6 +203,7 @@
         }
       }
       $('.tile-container').off('click');
+      $('.game-over-container').toggleClass('is-hidden');
     }
 
     function updateHealth() {
@@ -147,8 +212,6 @@
 
     function init() {
       bindEvents();
-      updateHealth();
-      new GameBoard();
     }
 
     return {

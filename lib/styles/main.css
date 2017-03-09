@@ -59,26 +59,86 @@ body {
   font: 16px/1.6 "Nova Square", cursive;
   text-align: center; }
 
+a {
+  color: #FCE945;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+.home-container {
+  color: #FAFAFA;
+  font-family: helvetica;
+  text-align: left; }
+  .home-container .difficulty-form label {
+    color: #FCE945; }
+  .home-container .difficulty-form select {
+    font: 1rem helvetica; }
+    .home-container .difficulty-form select option {
+      color: #2e3242; }
+
+.play-btn, .restart-btn {
+  color: #2e3242;
+  font: 2rem "Nova Square", cursive;
+  text-transform: uppercase; }
+  .play-btn:active, .restart-btn:active {
+    color: #FCE945; }
+
 .game-title {
-  font-size: 4rem; }
+  font-size: 4rem;
+  text-shadow: 3px 3px #2e3242; }
 
 body {
-  background: #043247; }
+  background-color: #2e3242;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  height: 100%;
+  position: absolute;
+  width: 100%; }
 
 main {
   margin: 3rem auto; }
   main .game-title {
     margin-bottom: 1rem; }
 
-.health-container {
-  margin: 1rem auto; }
-  .health-container .health-bar {
-    justify-content: center; }
-    .health-container .health-bar .hp {
-      width: 50px; }
+.home-container {
+  margin: 0 auto;
+  max-width: 800px;
+  padding-bottom: 3rem;
+  width: 85%; }
+  .home-container .game-blurb {
+    margin-bottom: 2rem; }
+
+.difficulty-form {
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; }
+  .difficulty-form .difficulty-select {
+    background: #FAFAFA;
+    border-radius: 0;
+    display: block;
+    width: 150px; }
+    .difficulty-form .difficulty-select:focus {
+      box-shadow: 0 0 10px #FCE945;
+      outline: none; }
+  .difficulty-form .play-btn {
+    background: #FCE945;
+    border: 4px solid #2e3242;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: .5rem;
+    width: 150px; }
+    .difficulty-form .play-btn:active {
+      background: #2e3242;
+      border: 4px solid #FCE945; }
+    .difficulty-form .play-btn:focus {
+      box-shadow: 0 0 10px #FCE945;
+      outline: none; }
+
+.game-wrapper {
+  margin: 0 auto;
+  max-width: 900px; }
 
 .game-container {
-  background: #ABC3CF;
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   align-items: center;
   flex-direction: row;
@@ -89,7 +149,7 @@ main {
   position: relative;
   width: 85%; }
   .game-container p {
-    background: #043247;
+    background: #2e3242;
     border: 1px solid #FCE945;
     bottom: 0;
     color: #FCE945;
@@ -100,7 +160,8 @@ main {
     width: 100%; }
 
 .tile-container {
-  width: 12%; }
+  margin: 1rem;
+  width: 115px; }
   .tile-container .back:hover {
     animation: bounce 1s ease infinite;
     cursor: pointer; }
@@ -110,6 +171,51 @@ main {
     animation: bounce 1s ease; }
   .tile-container .missed {
     animation: shake 3s ease; }
+
+.health-container {
+  margin: 1rem auto; }
+  .health-container .health-bar {
+    justify-content: center; }
+    .health-container .health-bar .hp {
+      background: #FAFAFA;
+      border-right: 2px solid #2e3242;
+      height: 25px;
+      width: 25px; }
+      .health-container .health-bar .hp:first-of-type {
+        border-left: 2px solid #2e3242; }
+
+.game-over-container {
+  background: rgba(0, 0, 0, 0.25);
+  min-height: 100%;
+  min-width: 100%;
+  padding-top: 18rem;
+  position: absolute;
+  z-index: 1000; }
+  .game-over-container .restart-btn {
+    background: #FCE945;
+    border: 4px solid #2e3242;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: .5rem;
+    width: 150px; }
+    .game-over-container .restart-btn:active {
+      background: #2e3242;
+      border: 4px solid #FCE945; }
+    .game-over-container .restart-btn:focus {
+      box-shadow: 0 0 10px #FCE945;
+      outline: none; }
+
+.game-report-wrapper {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 4px solid #FCE945;
+  border-radius: 50%;
+  flex-direction: column;
+  height: 250px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 250px; }
 
 .is-flex {
   display: flex; }
