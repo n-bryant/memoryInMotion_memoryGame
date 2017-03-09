@@ -1,2 +1,2 @@
 # memoryGame
-https://n-bryant.github.io/memoryGame/
+https://n-bryant.github.io/memoryInMotion_memoryGame/
