@@ -135,7 +135,14 @@ main {
 
 .game-wrapper {
   margin: 0 auto;
-  max-width: 900px; }
+  max-width: 1200px; }
+  @media screen and (min-width: 320px) {
+    .game-wrapper {
+      height: 100vh;
+      overflow: scroll; } }
+  @media screen and (min-width: 550px) {
+    .game-wrapper {
+      height: auto; } }
 
 .game-container {
   background: rgba(255, 255, 255, 0.25);
@@ -176,7 +183,9 @@ main {
   margin: 1rem auto; }
   .health-container .health-bar {
     flex-wrap: wrap;
-    justify-content: center; }
+    justify-content: center;
+    margin: 0 auto;
+    width: 85%; }
     .health-container .health-bar .hp {
       background: #FAFAFA;
       border-right: 2px solid #2e3242;
@@ -188,10 +197,12 @@ main {
 
 .game-over-container {
   background: rgba(0, 0, 0, 0.25);
+  height: 100vh;
   min-height: 100%;
   min-width: 100%;
   padding-top: 18rem;
-  position: absolute;
+  position: fixed;
+  top: 0;
   z-index: 1000; }
   .game-over-container .restart-btn {
     background: #FCE945;

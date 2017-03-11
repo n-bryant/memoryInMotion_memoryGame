@@ -15,10 +15,10 @@
       turns: 0
     };
 
-    let cardFronts = ['/images/img1.gif', '/images/img2.gif', '/images/img3.gif', '/images/img4.gif',
-                       '/images/img5.gif', '/images/img6.gif', '/images/img7.gif', '/images/img8.gif',
-                       '/images/img9.gif', '/images/img10.gif', '/images/img11.gif', '/images/img12.gif',
-                       '/images/img13.gif', '/images/img14.gif', '/images/img15.gif', '/images/img16.jpg'];
+    let cardFronts = ['images/img1.gif', 'images/img2.gif', 'images/img3.gif', 'images/img4.gif',
+                       'images/img5.gif', 'images/img6.gif', 'images/img7.gif', 'images/img8.gif',
+                       'images/img9.gif', 'images/img10.gif', 'images/img11.gif', 'images/img12.gif',
+                       'images/img13.gif', 'images/img14.gif', 'images/img15.gif', 'images/img16.jpg'];
 
     // game board constructor
     class GameBoard {

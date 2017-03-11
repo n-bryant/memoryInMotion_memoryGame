@@ -1,6 +1,14 @@
 .game-wrapper {
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1200px;
+
+  @include bp(mobile) {
+    height: 100vh;
+    overflow: scroll;
+  }
+  @include bp(small) {
+    height: auto;
+  }
 }
 
 .game-container {
@@ -56,6 +64,9 @@
   .health-bar {
     flex-wrap: wrap;
     justify-content: center;
+    margin: 0 auto;
+    width: 85%;
+    
     .hp {
       background: $light;
       border-right: 2px solid $slate;
